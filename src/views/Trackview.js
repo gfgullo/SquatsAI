@@ -7,15 +7,25 @@ import * as posenet from "@tensorflow-models/posenet";
 
 export default function Trackview(){
 
+  const repsGoal = 5;
+
+  const repsPhrases = {
+    0:"FAI 20 SQUATS",
+    1:"OTTIMO INIZIO",
+    5:"NE MANCANO 15",
+    10:"SEI A META' STRADA",
+    15:"FORZA LE ULTIME CINQUE",
+    18:"ANCORA 2"
+  }
+
     let posenetModel = React.useRef(null);
     var [inPosition, setInPosition] = useState(false);
     var [repsCounter, incrementReps] = useState(0);
+    var [repsPhrase, setPhrase] = useState(repsPhrases[0]);
     const history = useHistory();
 
     const webcamRef = React.useRef(null);
     const canvasRef = React.useRef(null);
-
-    const repsGoal = 2;
 
     const imgSize = {height:480, width:640};
 
@@ -28,6 +38,18 @@ export default function Trackview(){
       marginLeft: "auto",
       marginRight: "auto"
     };
+
+    const getPhrase = (reps) => {
+      console.log(repsPhrase);
+      for (const key in Object.keys(repsPhrases))
+      {
+        if(key==reps.toString())
+          return repsPhrases[key];
+        else if(key>reps)
+          break;
+      }
+      return null;
+    }
 
     const detectWebcamFeed = async () => {
       if (
@@ -105,6 +127,10 @@ export default function Trackview(){
           setInPosition(inPosition);
           repsCounter+=1;
           incrementReps(repsCounter);
+
+          const newPhrase = getPhrase(repsCounter);
+          if(newPhrase!==null)
+            setPhrase(newPhrase)
           
           if(isGoalCompleted())
             history.push("/result")
@@ -122,9 +148,7 @@ export default function Trackview(){
 
     return <div className="Track">
 
-
-
-            <h2>SQUATTA ORA</h2>
+            <h2>{repsPhrase}</h2>
             <p>SQUATS: {repsCounter}</p>
             <div style={{height:imgSize['height']}}>
               <Webcam

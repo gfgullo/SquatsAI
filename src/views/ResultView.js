@@ -7,11 +7,34 @@ export default function ResultView() {
   const history = useHistory();
   const emailRef = useRef(null);
 
+  const send = (email) => {
+
+    const headers = { 
+        'Content-Type': 'application/json',
+    };
+
+    const body = JSON.stringify({ email: email })
+    console.log(body);
+
+    const requestOptions = {
+        method: 'POST',
+        headers: headers,
+        body: body
+    };
+
+    fetch('https://pyfz1uy7j5.execute-api.us-east-1.amazonaws.com/dev', requestOptions)
+        .then(response => {
+            if(response.status===202)
+                history.push("/complete")
+        });
+  }
+
   const onSubmit = e => {
     e.preventDefault();  
     console.log("click");
     console.log(emailRef.current.value);
-    history.push("/complete")
+    send(emailRef.current.value);
+    //history.push("/complete")
   }
 
   return (
