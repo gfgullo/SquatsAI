@@ -1,0 +1,135 @@
+body{
+  height: 100%;
+  background: rgb(0,5,6);
+  background: linear-gradient(0deg, rgba(0,5,6,1) 0%, rgba(3,43,55,1) 100%);
+  background-repeat: no-repeat;
+  margin: auto;
+  background-attachment: fixed;
+  }
+
+.Welcome {
+  text-align: center;
+}
+
+.Welcome h1{
+  font-size: 26px;
+  font-weight:900;
+  padding: 0;
+  margin-bottom: 0;
+}
+
+.Welcome h2{
+  font-size: 24px;
+  font-weight: 400;
+  padding: 0;
+  margin-top:0;
+}
+
+.Welcome img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.Welcome .sample{
+  margin-top:50px;
+  width: 30%;
+}
+
+.logo{
+  margin-top:40px;
+  margin-bottom: 20px;
+  width: 10%;
+}
+
+.logo-final{
+  margin-top:40px;
+  margin-bottom: 10px;
+  width: 20%;
+}
+
+
+.Welcome a{
+  background: rgb(121,159,12);
+  background: linear-gradient(270deg, rgba(121,159,12,1) 0%, rgba(255,224,0,1) 100%);
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 20px;
+  color: #000506;
+  font-weight: bold;
+  line-height: 25px;
+}
+
+.Welcome p{
+  font-size: 8px;
+  font-weight: 200;
+  margin-bottom: 50px;
+}
+
+.Track {
+  text-align: center;
+}
+
+.Track h2{
+  margin-top: 20px;
+  margin-bottom: 0;
+}
+
+.Track p{
+  margin-top: 5px;
+}
+
+
+
+.Result {
+  padding-top: 10%;  
+  text-align: center;
+}
+
+.Result h1 {
+  font-weight: 600;
+  font-size: 32px;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.Result h3 {
+  font-weight: 300;
+  font-size: 18px;
+}
+
+.Result h4 {
+  margin-top: 0;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-weight: 300;
+  font-size: 18px;
+}
+
+.Result p{
+  margin-top: 10px;
+  font-weight: 200;
+  font-size: 8px;
+}
+
+.Result input[type=text] {
+  width: 25%;
+  background: linear-gradient(#808080, #808080) center bottom 5px /calc(100% - 20px) 0.5px no-repeat;
+  background-color: #c8c8c838;
+  border: none;
+  border-radius: 2px;
+  opacity: 1;
+  padding: 10px;
+}
+
+.Result input[type=submit] {
+  margin-top: 20px;
+  background: rgb(121,159,12);
+  background: linear-gradient(270deg, rgba(121,159,12,1) 0%, rgba(255,224,0,1) 100%);
+  text-decoration: none;
+  padding: 5px 40px 5px 40px;
+  border:none;
+  border-radius: 20px;
+  color: #000506;
+  font-weight: bold;
+  line-height: 25px;
+}

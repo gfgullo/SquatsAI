@@ -1,16 +1,33 @@
 import React, { useState } from 'react';
-import './App.css';
-import Trackview from './Trackview'
-import WelcomeView from './WelcomeView'
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import './style/App.css';
+import FinishView from './views/FinishView';
+import ResultView from './views/ResultView';
+import Trackview from './views/Trackview'
+import WelcomeView from './views/WelcomeView'
 
 export default function App() {
 
-  const [start, setStart] = useState(false)
-  const onStart = ()=>setStart(true)
 
   return (
-    <div className="App">
-      {start ? (<Trackview/>) : (<WelcomeView onStart={onStart}/>)}
+    <div className="">
+      <BrowserRouter>
+        <Switch>
+        <Route path="/squats">
+            <Trackview />
+          </Route> 
+          <Route path="/result">
+            <ResultView />
+          </Route> 
+          <Route path="/complete">
+            <FinishView />
+          </Route> 
+          <Route path="/">
+            <WelcomeView />
+          </Route>
+        </Switch>
+      </BrowserRouter>
+
     </div>
   );
 }

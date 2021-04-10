@@ -1,0 +1,8 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Arial Nova', 'Arial Black',
+    sans-serif;
+  color: white;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
