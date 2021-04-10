@@ -1,13 +1,16 @@
+import React, { useState } from 'react';
 import './App.css';
 import Trackview from './Trackview'
+import WelcomeView from './WelcomeView'
 
-function App() {
+export default function App() {
+
+  const [start, setStart] = useState(false)
+  const onStart = ()=>setStart(true)
+
   return (
     <div className="App">
-      <h3>Squat counters V5</h3>
-      <Trackview/>
+      {start ? (<Trackview/>) : (<WelcomeView onStart={onStart}/>)}
     </div>
   );
 }
-
-export default App;

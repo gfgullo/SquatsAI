@@ -51,14 +51,6 @@ export default function Trackview(){
     const runPosenet = async () => {
 
       posenetModel.current = await loadPosenet();
-      
-      /*
-      while(true)
-      {
-        await detectWebcamFeed();
-        await sleep(500);
-      }
-      */
         
         setInterval(() => {
           detectWebcamFeed();
@@ -77,11 +69,6 @@ export default function Trackview(){
       const keypoints = pose["keypoints"]
 
       drawKeypoints(pose["keypoints"], 0.2, ctx);
-      //drawSkeleton(pose["keypoints"], 0.3, ctx);
-
-      //console.log(keypoints[13].position.y);
-      //console.log(keypoints[11].position.y);
-      //console.log("--------");
 
       if(!inPosition)
       {
@@ -100,7 +87,6 @@ export default function Trackview(){
           setInPosition(inPosition);
           repsCounter+=1;
           incrementReps(repsCounter);
-          console.log("SQUAT: "+(repsCounter).toString());
         }
       }    
     };
@@ -108,37 +94,30 @@ export default function Trackview(){
     if(posenetModel.current==null)
     {
       console.log("posenet is null");
+      console.log(window.innerWidth);
       runPosenet();
     } 
 
     return <div>
-                  <h3>Squats: {repsCounter}</h3>
+            <h3>Squats: {repsCounter}</h3>
             <Webcam
                 ref={webcamRef}
                 style={{
                   position: "absolute",
-                  marginLeft: "auto",
-                  marginRight: "auto",
                   left: 0,
                   right: 0,
-                  textAlign: "center",
-                  zindex: 9,
-                  width: 600,
-                  height: 450
+                  width: window.innerWidth,
+                  height: window.innerHeight
                 }}
               />
               <canvas
                 ref={canvasRef}
                 style={{
                   position: "absolute",
-                  marginLeft: "auto",
-                  marginRight: "auto",
                   left: 0,
                   right: 0,
-                  textAlign: "center",
-                  zindex: 9,
-                  width: 600,
-                  height: 450
+                  width: window.innerWidth,
+                  height: window.innerHeight
                 }}
               />
 
